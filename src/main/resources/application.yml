@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: msclientes
+  datasource:
+    url: jdbc:mysql://localhost:3307/msclientes?createDatabaseIfNotExist=true
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
+server:
+  port: 0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
